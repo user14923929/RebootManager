@@ -27,6 +27,19 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
+      # Safety net: generate the wrapper in an empty temp dir (the runner's preinstalled Gradle cannot
+      # configure this project) if gradlew was not committed. Better: commit gradlew + gradle/wrapper/.
+      - name: Ensure Gradle wrapper
+        run: |
+          if [ ! -f gradlew ]; then
+            echo "::warning::gradlew is not committed; generating it for this build."
+            mkdir "$RUNNER_TEMP/wrapper"
+            (cd "$RUNNER_TEMP/wrapper" && gradle wrapper --gradle-version 8.9)
+            cp "$RUNNER_TEMP/wrapper/gradlew" "$RUNNER_TEMP/wrapper/gradlew.bat" .
+            mkdir -p gradle/wrapper
+            cp -r "$RUNNER_TEMP/wrapper/gradle/wrapper/." gradle/wrapper/
+          fi
+
       - name: Build debug APK
         run: |
           VERSION="${GITHUB_REF_NAME#v}"

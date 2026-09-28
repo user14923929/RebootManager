@@ -48,6 +48,8 @@ Not implemented: Android 11+ "Wireless debugging" with pairing codes (TLS). It w
 
 ## Releases (CI/CD)
 
+Requires `gradlew` and `gradle/wrapper/` to be committed.
+
 `.github/workflows/release.yml` builds and publishes a **debug APK** only when a `v*` tag is pushed:
 
 ```bash

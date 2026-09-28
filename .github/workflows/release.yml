@@ -34,6 +34,8 @@ jobs:
           if [ ! -f gradlew ]; then
             echo "::warning::gradlew is not committed; generating it for this build."
             mkdir "$RUNNER_TEMP/wrapper"
+            # Gradle 9 refuses to run outside a build, so give the temp dir an empty settings file.
+            touch "$RUNNER_TEMP/wrapper/settings.gradle"
             (cd "$RUNNER_TEMP/wrapper" && gradle wrapper --gradle-version 8.9)
             cp "$RUNNER_TEMP/wrapper/gradlew" "$RUNNER_TEMP/wrapper/gradlew.bat" .
             mkdir -p gradle/wrapper

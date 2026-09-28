@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Reboot Manager</string>
+
+    <string name="section_connection">Connection</string>
+    <string name="section_reboot">Reboot</string>
+    <string name="active">Active</string>
+    <string name="unavailable_title">✕ No execution method available</string>
+    <string name="method_root">Root</string>
+    <string name="method_usb_adb">USB ADB</string>
+    <string name="method_wireless_adb">Wireless ADB</string>
+    <string name="method_auto">Auto</string>
+    <string name="method_auto_desc">Root → USB ADB → Wireless ADB</string>
+    <string name="authorize">Authorize</string>
+    <string name="refresh">Refresh</string>
+    <string name="back">Back</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="cancel">Cancel</string>
+    <string name="modes_footer">Some modes depend on the manufacturer and the device. Unsupported modes are disabled.</string>
+
+    <string name="mode_restart">Restart</string>
+    <string name="mode_recovery">Recovery</string>
+    <string name="mode_bootloader">Bootloader</string>
+    <string name="mode_fastboot">Fastboot</string>
+    <string name="mode_fastbootd">FastbootD</string>
+    <string name="mode_shutdown">Shutdown</string>
+
+    <string name="confirm_restart">Restart device?</string>
+    <string name="confirm_recovery">Reboot into Recovery?</string>
+    <string name="confirm_bootloader">Reboot into Bootloader?</string>
+    <string name="confirm_fastboot">Reboot into Fastboot?</string>
+    <string name="confirm_fastbootd">Reboot into FastbootD?</string>
+    <string name="confirm_shutdown">Shut down device?</string>
+    <string name="confirm_body_reboot">The device will restart immediately.</string>
+    <string name="confirm_body_shutdown">The device will power off immediately.</string>
+    <string name="confirm_action_reboot">Reboot</string>
+    <string name="confirm_action_shutdown">Shut down</string>
+
+    <string name="settings_method">Execution method</string>
+    <string name="settings_behavior">Behavior</string>
+    <string name="settings_confirm_restart">Confirm before a normal restart</string>
+    <string name="settings_confirm_restart_desc">Other modes always ask for confirmation.</string>
+    <string name="settings_wireless_port">Wireless ADB port</string>
+    <string name="settings_wireless_port_desc">Classic ADB over TCP (run \"adb tcpip PORT\" once over USB). Valid range: 1–65535.</string>
+
+    <string name="about_version">Version</string>
+    <string name="about_sdk">Android SDK</string>
+    <string name="about_license">License</string>
+    <string name="about_license_value">GPL-3.0</string>
+    <string name="about_privacy">No ads, no analytics, no cloud services. The INTERNET permission is used only for sockets to the local ADB daemon.</string>
+    <string name="about_libraries">Open-source libraries</string>
+</resources>

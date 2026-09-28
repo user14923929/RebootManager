@@ -15,23 +15,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
 
+      # gradle.properties pins org.gradle.java.home to a local path that does not exist on the runner,
+      # which makes every Gradle invocation fail. Drop that line in CI only.
+      - name: Remove local JDK path from gradle.properties
+        run: sed -i '/^org.gradle.java.home=/d' gradle.properties
+
       - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: "8.9"
 
       - name: Build debug APK
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
-          # gradle.properties points org.gradle.java.home at a local path; override it with the runner's JDK 17.
-          gradle assembleDebug \
+          chmod +x gradlew
+          ./gradlew assembleDebug \
             -PversionName="$VERSION" \
-            -PversionCode="$GITHUB_RUN_NUMBER" \
-            -Dorg.gradle.java.home="$JAVA_HOME"
+            -PversionCode="$GITHUB_RUN_NUMBER"
           cp app/build/outputs/apk/debug/app-debug.apk "RebootManager-$VERSION-debug.apk"
           echo "APK_FILE=RebootManager-$VERSION-debug.apk" >> "$GITHUB_ENV"
 

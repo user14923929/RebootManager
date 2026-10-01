@@ -16,6 +16,17 @@ androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = 
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+# TLS ADB pairing + connection ("Wireless debugging"), used only by the wireless debugging
+# classes under adb/tls/. Package is io.github.muntashirakon.adb (NOT com.github.MuntashirAkon.*
+# — that's only the JitPack/Maven coordinate). Version 3.1.0 confirmed in use by a real,
+# building app (github.com/sam1am/anyapk) as of this writing; check
+# https://jitpack.io/#MuntashirAkon/libadb-android if a newer tag exists.
+libadb-android = { module = "com.github.MuntashirAkon:libadb-android", version = "3.1.0" }
+# Required by libadb-android itself for TLS — not optional, confirmed by the same reference app.
+conscrypt-android = { module = "org.conscrypt:conscrypt-android", version = "2.5.3" }
+# Generates the RSA key + self-signed certificate libadb-android's ADB identity needs
+# (Android has no public, non-hidden API for that) — a sibling library by the same author.
+sun-security-android = { module = "com.github.MuntashirAkon:sun-security-android", version = "1.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

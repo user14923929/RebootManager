@@ -3,6 +3,8 @@
 
     <!-- Needed only for sockets to the local ADB daemon (loopback / LAN). No cloud traffic. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Wireless debugging's autoConnect discovers adbd's current port via mDNS/NSD, which needs this. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".RebootApp"

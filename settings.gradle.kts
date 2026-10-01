@@ -17,6 +17,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // libadb-android (TLS Wireless debugging / ADB pairing) is published only on JitPack.
+        maven("https://jitpack.io")
     }
 }
 

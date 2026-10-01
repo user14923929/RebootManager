@@ -22,14 +22,12 @@
     <string name="mode_restart">Restart</string>
     <string name="mode_recovery">Recovery</string>
     <string name="mode_bootloader">Bootloader</string>
-    <string name="mode_fastboot">Fastboot</string>
     <string name="mode_fastbootd">FastbootD</string>
     <string name="mode_shutdown">Shutdown</string>
 
     <string name="confirm_restart">Restart device?</string>
     <string name="confirm_recovery">Reboot into Recovery?</string>
     <string name="confirm_bootloader">Reboot into Bootloader?</string>
-    <string name="confirm_fastboot">Reboot into Fastboot?</string>
     <string name="confirm_fastbootd">Reboot into FastbootD?</string>
     <string name="confirm_shutdown">Shut down device?</string>
     <string name="confirm_body_reboot">The device will restart immediately.</string>
@@ -41,8 +39,13 @@
     <string name="settings_behavior">Behavior</string>
     <string name="settings_confirm_restart">Confirm before a normal restart</string>
     <string name="settings_confirm_restart_desc">Other modes always ask for confirmation.</string>
-    <string name="settings_wireless_port">Wireless ADB port</string>
-    <string name="settings_wireless_port_desc">Classic ADB over TCP (run \"adb tcpip PORT\" once over USB). Valid range: 1–65535.</string>
+    <string name="settings_pair">Pair device</string>
+    <string name="settings_pair_desc">One-time pairing with a code, like connecting a new computer. Required once before Wireless debugging can be used.</string>
+    <string name="pair_dialog_title">Pair Wireless debugging</string>
+    <string name="pair_dialog_body">On the device: Settings &gt; Developer options &gt; Wireless debugging &gt; Pair device with pairing code. Enter the port and code shown there.</string>
+    <string name="pair_dialog_port">Pairing port</string>
+    <string name="pair_dialog_code">Pairing code</string>
+    <string name="pair">Pair</string>
 
     <string name="about_version">Version</string>
     <string name="about_sdk">Android SDK</string>

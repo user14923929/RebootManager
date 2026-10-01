@@ -5,18 +5,18 @@ plugins {
 }
 
 android {
-    namespace = "dev.rebootmanager"
+    namespace = "org.user14923929.rebootmanager"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "dev.rebootmanager"
+        applicationId = "org.user14923929.rebootmanager"
         // Compose itself requires API 21+. Everything below Android 11 is handled
         // at runtime (Wireless ADB is reported as Unsupported there).
         minSdk = 21
         targetSdk = 35
         // CI passes these from the git tag (see .github/workflows/release.yml).
-        versionCode = (project.findProperty("versionCode") as String?)?.toIntOrNull() ?: 1
-        versionName = (project.findProperty("versionName") as String?) ?: "1.0.0"
+        versionCode = (project.findProperty("versionCode") as String?)?.toIntOrNull() ?: 2
+        versionName = (project.findProperty("versionName") as String?) ?: "1.0.1"
     }
 
     // Release signing is configured only when CI (or you) provides a keystore via environment variables.
@@ -63,6 +63,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.libadb.android)
+    implementation(libs.conscrypt.android)
+    implementation(libs.sun.security.android)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
